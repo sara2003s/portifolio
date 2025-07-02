@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block page_content %}
+<h1>Projetos: {{ quantidade }}</h1>
+<div class="row">
+    {% for projeto in projetos %}
+    <div class="col-md-4">
+        <div class="card mb-2">
+            {% if not projeto.imagem %}
+            <img class="card-img-top" src="https://placehold.co/600x400" alt="">
+            {% else %}
+            <img class="card-img-top" src="{{ projeto.imagem.url }}" alt="">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ projeto.titulo }}</h5>
+                <p class="card-text">{{ projeto.descricao }}</p>
+                <a class="btn btn-primary" href="{% url 'detalhe' projeto.pk %}">
+                    Leia mais
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
