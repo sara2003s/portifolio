@@ -4,7 +4,7 @@ from projetos.models import Projeto
 # Register your models here.
 @admin.register(Projeto)
 class ProjetoAdmin(admin.ModelAdmin):
-    list_display = ('titulo_alias', 'descricao_alias', 'tecnologias_alias')
+    list_display = ('titulo_alias', 'descricao_alias', 'tecnologias_alias', 'publicado')
     list_filter = ('tecnologias',)
     ordering = ('tecnologias',)
     search_fields = ('titulo',)

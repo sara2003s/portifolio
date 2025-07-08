@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
-{% load static %}
 {% block page_content %}
 <h1>{{ projeto.titulo }}</h1>
 <div class="row">
     <div class="col-md-8">
+        {% if not projeto.imagem %}
         <img src="{{ projeto.imagem.url }}" alt=" imagem ampliada do projeto" width="100%">
+        {% else %}
+        <img class="card-img-top" src="{{ projeto.imagem.url }}" alt="Imagem do projeto" width="100%" />
+        {% endif %}
     </div>
-    </div class="col-md-4">
+    <div class="col-md-4">
         <h5>Sobre o projeto</h5>
         <p>{{ projeto.descricao }}</p>
         <br>
@@ -14,5 +17,4 @@
         <p>{{ projeto.tecnologia }}</p>
     </div>
 </div>
-
-{% endblock %} 
+{% endblock %}
